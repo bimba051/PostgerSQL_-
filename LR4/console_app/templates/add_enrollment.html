@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Додати зарахування</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="student_id" class="form-label">Студент</label>
+        <select name="student_id" id="student_id" class="form-select">
+            {% for student in students %}
+            <option value="{{ student[0] }}">{{ student[1] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="course_id" class="form-label">Курс</label>
+        <select name="course_id" id="course_id" class="form-select">
+            {% for course in courses %}
+            <option value="{{ course[0] }}">{{ course[1] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="grade" class="form-label">Оцінка (необов'язково)</label>
+        <input type="number" name="grade" id="grade" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success">Додати</button>
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Зарахування студентів на курси</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Студент</th>
+            <th>Група</th>
+            <th>Курс</th>
+            <th>Оцінка</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for enrollment in enrollments %}
+        <tr>
+            <td>{{ enrollment[0] }}</td>
+            <td>{{ enrollment[1] }}</td>
+            <td>{{ enrollment[2] }}</td>
+            <td>{{ enrollment[3] }}</td>
+            <td>{{ enrollment[4] if enrollment[4] else "-" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('add_enrollment') }}" class="btn btn-primary">Додати зарахування</a>
+{% endblock %}
